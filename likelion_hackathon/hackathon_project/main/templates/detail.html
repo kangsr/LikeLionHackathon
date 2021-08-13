@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Detail</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="{% url 'home' %}" class="logo">
+									<span class="symbol"><img src="static/images/logo.svg" alt="" /></span><span class="title">책갈피</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="{%url 'select' %}">새로운 기록 작성하기</a></li>
+							<li><a href="">Login</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>{{book.title}}</h1>
+							<span class="image main"><img src="static/images/pic13.jpg" alt="" /></span>
+							<div>
+							저자 : {{book.writer}}
+							<br>
+							날짜 : {{book.read_date}}
+							<br>
+							장르 : {{book.genre}}
+							<br>
+							작성자 : {{book.author}}
+							</div>
+							<hr>
+							{% if book.genre == 'fiction' %}
+								<p>1. 이 책을 선택한 이유는 무엇인가요?</p>
+								<p> {{book.question1}}</p>
+								<br><br><br><br><br>
+								<p>2. 주인공의 성격은 어떤가요?</p>
+								<p> {{book.question2}}</p>
+								<br><br><br><br><br>
+								<p>3. 주인공은 어떤 상황에 처해있나요?</p>
+								<p> {{book.question3}}</p>
+								<br><br><br><br><br>
+								<p>4. 내가 주인공이라면 그 상황에서 어떤 선택을 했을까요?</p>
+								<p> {{book.question4}}</p>
+								<br><br><br><br><br>
+								<p>5. 이 책은 당신의 마음속에 어떻게 기록될 것 같나요?</p>
+								<p> {{book.question5}}</p>
+								<br><br><br><br><br>
+								<hr>
+								<a href="{% url 'editBook' book.id %}">수정하기</a>
+								<br>
+								<br>
+								<a href="{% url 'deleteBook' book.id %}">삭제하기</a>
+							{% endif %}
+
+							{% if book.genre == 'poetry' %}
+								<p>1. 이 책을 선택한 이유는 무엇인가요?</p>
+								<p> {{book.question1}}</p>
+								<br><br><br><br><br>
+								<p>2. 가장 기억에 남는 시 한 편을 고르고, 마음에 와닿은 구절을 기록해 보세요</p>
+								<p> {{book.question2}}</p>
+								<br><br><br><br><br>
+								<p>3. 이 시에서 시인이 말하고자 하는 주제는 무엇이라고 생각하나요?</p>
+								<p> {{book.question3}}</p>
+								<br><br><br><br><br>
+								<p>4. 이 책을 추천해주고싶은 사람이 있나요? 이유는 무엇인가요?</p>
+								<p> {{book.question4}}</p>
+								<br><br><br><br><br>
+								<p>5. 이 책은 당신의 마음속에 어떻게 기록될 것 같나요?</p>
+								<p> {{book.question5}}</p>
+								<br><br><br><br><br>
+								<hr>
+								<a href="{% url 'editBook' book.id %}">수정하기</a>
+								<br>
+								<br>
+								<a href="{% url 'deleteBook' book.id %}">삭제하기</a>
+								{% endif %}
+
+							{% if book.genre == 'nonfiction' %}
+								<p>1. 이 책을 선택한 이유는 무엇인가요?</p>
+								<p> {{book.question1}}</p>
+								<br><br><br><br><br>
+								<p>2. 새롭게 알게 된 용어가 있다면 정리해보세요.</p>
+								<p> {{book.question2}}</p>
+								<br><br><br><br><br>
+								<p>3. 저자의 핵심 주장은 무엇인가요?</p>
+								<p> {{book.question3}}</p>
+								<br><br><br><br><br>
+								<p>4. 저자의 주장에 어느 정도로 공감하나요? 반론하고 싶은 부분이 있다면 기록해보세요.</p>
+								<p> {{book.question4}}</p>
+								<br><br><br><br><br>
+								<p>5. 이 책은 당신의 마음속에 어떻게 기록될 것 같나요?</p>
+								<p> {{book.question5}}</p>
+								<br><br><br><br><br>
+								<hr>
+								<a href="{% url 'editBook' book.id %}">수정하기</a>
+								<br>
+								<br>
+								<a href="{% url 'deleteBook' book.id %}">삭제하기</a>
+							{% endif %}
+
+							{% if book.genre == 'essay' %}
+								<p>1. 이 책을 선택한 이유는 무엇인가요?</p>
+								<p> {{book.question1}}</p>
+								<br><br><br><br><br>
+								<p>2. 무엇에 관한 이야기인가요?</p>
+								<p> {{book.question2}}</p>
+								<br><br><br><br><br>
+								<p>3. 저자의 경험 중 공감되는 부분이 있다면 무엇인가요?</p>
+								<p> {{book.question3}}</p>
+								<br><br><br><br><br>
+								<p>4. 무엇을 깨달았고, 자신의 삶에 어떻게 적용할 수 있을지 기록해 보세요.</p>
+								<p> {{book.question4}}</p>
+								<br><br><br><br><br>
+								<p>5. 이 책은 당신의 마음속에 어떻게 기록될 것 같나요?</p>
+								<p> {{book.question5}}</p>
+								<br><br><br><br><br>
+								<hr>
+								<a href="{% url 'editBook' book.id %}">수정하기</a>
+								<br>
+								<br>
+								<a href="{% url 'deleteBook' book.id %}">삭제하기</a>
+							{% endif %}
+
+							
+
+
+						</div>
+					</div>
+
+				
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>

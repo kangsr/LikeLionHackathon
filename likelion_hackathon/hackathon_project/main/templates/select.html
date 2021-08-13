@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Gowun+Dodum&display=swap');
+        body {background-color: rgb(221, 138, 166);}
+        h1 {margin-top:10%; font-weight: bold; text-align:center; color:white; font-size: 40px; font-family: 'Gowun Dodum', sans-serif;}
+        a { color:rgb(37, 36, 36); font-size:15px; text-align:center; font-size: 30px; font-weight:bold; font-family: 'Gowun Batang', serif;}
+        .select{margin-top: 10%; text-align: center;}
+        
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새로운 기록 작성하기</title>
+</head>
+<body>
+    <h1>어떤 종류의 책을 읽으셨나요?</h1>
+    <div class="select">
+    <a href="{% url 'new_fiction' %}">소설/희곡</a>
+    <br>
+    <br>
+    <a href="{% url 'new_poetry' %}">시</a>
+    <br>
+    <br>
+    <a href="{% url 'new_nonfiction' %}">비문학</a>
+    <br>
+    <br>
+    <a href="{% url 'new_essay' %}">에세이</a>
+    <br>
+    <br>
+    <a href="{% url 'new_free' %}">기타(자유 양식)</a>
+    </div>
+</body>
+</html>
