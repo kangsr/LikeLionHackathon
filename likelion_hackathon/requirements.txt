@@ -59,7 +59,7 @@ ply==3.11
 psycopg2-binary==2.9.1
 pycosat==0.6.3
 pycurl==7.43.0.6
-pyodbc===4.0.0-unsupported
+
 pypiwin32==223
 pyreadline==2.1
 pytest==6.2.3
